@@ -12,7 +12,7 @@
     "AI",
     "Other"
   ],
-  "icon": "./resources/claude-logo.png",
+  "icon": "resources/claude-logo.png",
   "activationEvents": [
     "onStartupFinished"
   ],
@@ -55,14 +55,14 @@
         {
           "id": "claudix-chat-sidebar",
           "title": "Claudix",
-          "icon": "resources/icon.svg"
+          "icon": "resources/claude-logo.svg"
         }
       ]
     },
     "views": {
       "claudix-chat-sidebar": [
         {
-          "icon": "resources/icon.svg",
+          "icon": "resources/claude-logo.svg",
           "type": "webview",
           "id": "claudix.chatView",
           "name": "Claudix"
@@ -79,12 +79,9 @@
   "scripts": {
     "dev": "concurrently \"pnpm run dev:webview\" \"pnpm run watch:extension\"",
     "dev:webview": "vite --config src/webview/vite.config.ts --port 5173 --strictPort",
-    "build:extension": "tsx esbuild.t s --production",
+    "build:extension": "tsx esbuild.ts --production",
     "build:webview": "vite build --config src/webview/vite.config.ts",
     "build": "pnpm run build:webview && pnpm run build:extension",
-    "compile:extension": "tsx esbuild.ts",
-    "compile:webview": "vite build --config src/webview/vite.config.ts",
-    "compile": "pnpm run compile:webview && pnpm run compile:extension",
     "watch:extension": "tsx esbuild.ts --watch",
     "watch:webview": "vite build --config src/webview/vite.config.ts --watch",
     "watch": "concurrently \"pnpm run watch:extension\" \"pnpm run watch:webview\"",
